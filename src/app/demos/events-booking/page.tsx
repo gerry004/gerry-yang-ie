@@ -1,31 +1,37 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { eventsData, Event } from './data';
 import Calendar from './components/Calendar';
 import EventCard from './components/EventCard';
 import EventModal from './components/EventModal';
-import { eventsData } from './data';
-import type { Event } from './data';
 
 export default function EventsBookingDemo() {
+  const [isClient, setIsClient] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const filteredEvents = selectedDate
-    ? eventsData.filter(event => event.date === selectedDate)
-    : eventsData;
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const filteredEvents = eventsData.filter(event => {
+    const matchesDate = event.date === selectedDate;
+    const matchesCategory = selectedCategory === 'All' || event.category === selectedCategory;
+    return matchesDate && matchesCategory;
+  });
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
-    <div className="min-h-screen bg-white">
-      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div className="min-h-screen bg-gray-50">
+      <nav className="bg-gray-800 border-b border-gray-700">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
-            <div className="text-xl font-bold text-gray-900">Events Booking Platform</div>
-            <div className="flex items-center gap-4">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                Create Event
-              </button>
-            </div>
+            <div className="text-xl font-bold text-white">Events Booking Platform</div>
           </div>
         </div>
       </nav>
@@ -48,7 +54,12 @@ export default function EventsBookingDemo() {
                 {['All', 'Tech', 'Business', 'Creative', 'Workshop', 'Conference'].map((category) => (
                   <button
                     key={category}
-                    className="block w-full text-left px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
+                    onClick={() => setSelectedCategory(category)}
+                    className={`block w-full text-left px-3 py-2 rounded-lg transition-colors ${
+                      selectedCategory === category
+                        ? 'bg-blue-50 text-blue-600'
+                        : 'text-gray-700 hover:bg-gray-50'
+                    }`}
                   >
                     {category}
                   </button>
@@ -72,7 +83,7 @@ export default function EventsBookingDemo() {
         </div>
       </main>
 
-      {/* Event Details Modal */}
+      {/* Event Modal */}
       {selectedEvent && (
         <EventModal
           event={selectedEvent}

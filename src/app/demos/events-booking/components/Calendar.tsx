@@ -1,63 +1,68 @@
 'use client';
 
-import { useState } from 'react';
-import type { Event } from '../data';
+import { useState, useMemo } from 'react';
+import { Event } from '../data';
 
 interface CalendarProps {
   events: Event[];
-  selectedDate: string | null;
+  selectedDate: string;
   onSelectDate: (date: string) => void;
 }
 
 export default function Calendar({ events, selectedDate, onSelectDate }: CalendarProps) {
-  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [currentMonth, setCurrentMonth] = useState(() => selectedDate.slice(0, 7)); // YYYY-MM
 
-  const daysInMonth = new Date(
-    currentMonth.getFullYear(),
-    currentMonth.getMonth() + 1,
-    0
-  ).getDate();
+  const { days, firstDayOfMonth } = useMemo(() => {
+    const date = new Date(`${currentMonth}-01`);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month, 1).getDay();
 
-  const firstDayOfMonth = new Date(
-    currentMonth.getFullYear(),
-    currentMonth.getMonth(),
-    1
-  ).getDay();
+    const daysArray = Array.from({ length: daysInMonth }, (_, i) => {
+      const dayNum = i + 1;
+      const dateString = `${currentMonth}-${String(dayNum).padStart(2, '0')}`;
+      const hasEvents = events.some(event => event.date === dateString);
+      const eventCount = events.filter(event => event.date === dateString).length;
+      return {
+        date: dayNum,
+        dateString,
+        hasEvents,
+        eventCount,
+      };
+    });
 
-  const days = Array.from({ length: daysInMonth }, (_, i) => {
-    const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), i + 1);
-    const dateString = date.toISOString().split('T')[0];
-    const hasEvents = events.some(event => event.date === dateString);
-    
     return {
-      date: i + 1,
-      dateString,
-      hasEvents
+      days: daysArray,
+      firstDayOfMonth: firstDay,
     };
-  });
-
-  const previousMonth = () => {
-    setCurrentMonth(new Date(currentMonth.setMonth(currentMonth.getMonth() - 1)));
-  };
-
-  const nextMonth = () => {
-    setCurrentMonth(new Date(currentMonth.setMonth(currentMonth.getMonth() + 1)));
-  };
+  }, [currentMonth, events]);
 
   return (
-    <div className="select-none">
-      <div className="flex items-center justify-between mb-4">
+    <div>
+      <div className="flex justify-between items-center mb-4">
         <button
-          onClick={previousMonth}
+          onClick={() => {
+            const [year, month] = currentMonth.split('-');
+            const newDate = new Date(+year, +month - 2);
+            setCurrentMonth(newDate.toISOString().slice(0, 7));
+          }}
           className="p-2 hover:bg-gray-100 rounded-lg"
         >
           ←
         </button>
-        <h2 className="text-lg font-semibold text-gray-900">
-          {currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}
-        </h2>
+        <h3 className="text-lg font-medium">
+          {new Date(`${currentMonth}-01`).toLocaleString('default', {
+            month: 'long',
+            year: 'numeric',
+          })}
+        </h3>
         <button
-          onClick={nextMonth}
+          onClick={() => {
+            const [year, month] = currentMonth.split('-');
+            const newDate = new Date(+year, +month);
+            setCurrentMonth(newDate.toISOString().slice(0, 7));
+          }}
           className="p-2 hover:bg-gray-100 rounded-lg"
         >
           →
@@ -77,20 +82,25 @@ export default function Calendar({ events, selectedDate, onSelectDate }: Calenda
           <div key={`empty-${i}`} className="aspect-square" />
         ))}
         
-        {days.map(({ date, dateString, hasEvents }) => (
+        {days.map(({ date, dateString, hasEvents, eventCount }) => (
           <button
             key={date}
             onClick={() => onSelectDate(dateString)}
             className={`
-              aspect-square flex items-center justify-center relative
+              aspect-square flex flex-col items-center justify-center relative
               text-sm rounded-lg transition-colors
-              ${selectedDate === dateString ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'}
-              ${hasEvents ? 'font-semibold' : ''}
+              ${selectedDate === dateString ? 'bg-blue-600 text-white' : 
+                hasEvents ? 'bg-blue-50 hover:bg-blue-100' : 'hover:bg-gray-100'}
+              ${hasEvents ? 'font-medium' : ''}
             `}
           >
-            {date}
+            <span>{date}</span>
             {hasEvents && (
-              <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-blue-600" />
+              <span className={`text-xs mt-0.5 ${
+                selectedDate === dateString ? 'text-blue-100' : 'text-blue-600'
+              }`}>
+                {eventCount} event{eventCount > 1 ? 's' : ''}
+              </span>
             )}
           </button>
         ))}

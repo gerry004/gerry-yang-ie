@@ -30,7 +30,12 @@ export const leadsData: Lead[] = Array.from({ length: 75 }, (_, i) => ({
   source: ['Website', 'Referral', 'LinkedIn', 'Conference', 'Cold Call'][Math.floor(Math.random() * 5)],
   tags: Array.from(
     { length: Math.floor(Math.random() * 3) + 1 },
-    () => ['Tech', 'Finance', 'Healthcare', 'Retail', 'Manufacturing'][Math.floor(Math.random() * 5)]
+    (_, tagIndex) => {
+      // Create unique tag combinations
+      const availableTags = ['Tech', 'Finance', 'Healthcare', 'Retail', 'Manufacturing'];
+      const randomIndex = Math.floor(Math.random() * availableTags.length);
+      return `${availableTags[randomIndex]}-${i}-${tagIndex}`;
+    }
   ),
   lastContact: new Date(Date.now() - Math.random() * 7776000000).toISOString().split('T')[0], // Random date within last 90 days
 }));

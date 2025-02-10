@@ -34,40 +34,48 @@ export default function ClientManagementLayout({
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <nav className="bg-gray-800 border-b border-gray-700">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <div className="text-xl font-bold">Client Management System</div>
-            <div className="flex items-center gap-4">
-              <button className="bg-blue-500 px-4 py-2 rounded-lg text-white">
-                + New Client
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       <div className="flex">
         {/* Sidebar */}
-        <div className="w-64 bg-gray-800/50 min-h-[calc(100vh-4rem)] p-4 space-y-2">
-          <SidebarItem
-            icon="📊"
-            label="Dashboard"
-            isActive={activeTab === 'dashboard'}
-            onClick={() => setActiveTab('dashboard')}
-          />
-          <SidebarItem
-            icon="🎯"
-            label="Leads"
-            isActive={activeTab === 'leads'}
-            onClick={() => setActiveTab('leads')}
-          />
-          <SidebarItem
-            icon="💰"
-            label="Deals"
-            isActive={activeTab === 'deals'}
-            onClick={() => setActiveTab('deals')}
-          />
+        <div className="w-64 bg-gray-800/50 min-h-screen p-4 flex flex-col">
+          {/* Logo/Title */}
+          <div className="text-xl font-bold mb-8 px-4 py-2">
+            Client Management System
+          </div>
+
+          {/* Navigation */}
+          <div className="flex-1 space-y-2">
+            <SidebarItem
+              icon="📊"
+              label="Dashboard"
+              isActive={activeTab === 'dashboard'}
+              onClick={() => setActiveTab('dashboard')}
+            />
+            <SidebarItem
+              icon="🎯"
+              label="Leads"
+              isActive={activeTab === 'leads'}
+              onClick={() => setActiveTab('leads')}
+            />
+            <SidebarItem
+              icon="💰"
+              label="Deals"
+              isActive={activeTab === 'deals'}
+              onClick={() => setActiveTab('deals')}
+            />
+          </div>
+
+          {/* User Profile */}
+          <div className="border-t border-gray-700 mt-4 pt-4 px-4">
+            <div className="text-sm">
+              <p className="font-medium text-gray-300">John Doe</p>
+              <p className="text-gray-500">john@example.com</p>
+            </div>
+            <button 
+              className="mt-4 w-full px-4 py-2 text-sm text-red-400 hover:bg-red-400/10 rounded-lg transition-colors"
+            >
+              Logout
+            </button>
+          </div>
         </div>
 
         {/* Main Content */}

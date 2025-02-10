@@ -65,6 +65,15 @@ months.forEach(month => {
       ? Math.floor(Math.random() * 15000) + 5000 // Income: 5000-20000
       : Math.floor(Math.random() * 5000) + 100;  // Expense: 100-5100
 
+    // Ensure unique tags by adding transaction index
+    const selectedTags = Array.from(
+      { length: Math.floor(Math.random() * 3) + 1 },
+      (_, tagIndex) => {
+        const baseTag = tags[Math.floor(Math.random() * tags.length)];
+        return `${baseTag}-${month}-${i}-${tagIndex}`;
+      }
+    );
+
     transactions.push({
       id: parseInt(`${month.replace('-', '')}${i}`),
       date: `${month}-${String(Math.floor(Math.random() * 28) + 1).padStart(2, '0')}`,
@@ -72,10 +81,7 @@ months.forEach(month => {
       amount,
       type: isIncome ? 'income' : 'expense',
       category,
-      tags: Array.from(
-        { length: Math.floor(Math.random() * 3) + 1 },
-        () => tags[Math.floor(Math.random() * tags.length)]
-      )
+      tags: selectedTags
     });
   }
 

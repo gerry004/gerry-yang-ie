@@ -1,91 +1,89 @@
 'use client';
 
 import { useState } from 'react';
-import type { Transaction } from '../data';
+import { Transaction } from '../data';
 
 interface TransactionsTableProps {
   transactions: Transaction[];
 }
 
 export default function TransactionsTable({ transactions }: TransactionsTableProps) {
-  const [sortBy, setSortBy] = useState<keyof Transaction>('date');
+  const [sortField, setSortField] = useState<keyof Transaction>('date');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
 
   const sortedTransactions = [...transactions].sort((a, b) => {
-    if (sortBy === 'amount') {
-      return sortDirection === 'asc' ? a.amount - b.amount : b.amount - a.amount;
+    if (sortDirection === 'asc') {
+      return a[sortField] > b[sortField] ? 1 : -1;
     }
-    return sortDirection === 'asc' 
-      ? a[sortBy].localeCompare(b[sortBy])
-      : b[sortBy].localeCompare(a[sortBy]);
+    return a[sortField] < b[sortField] ? 1 : -1;
   });
 
-  const handleSort = (column: keyof Transaction) => {
-    if (sortBy === column) {
-      setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
+  const handleSort = (field: keyof Transaction) => {
+    if (field === sortField) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
     } else {
-      setSortBy(column);
-      setSortDirection('desc');
+      setSortField(field);
+      setSortDirection('asc');
     }
+  };
+
+  const formatNumber = (num: number) => {
+    return new Intl.NumberFormat('en-IE', {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 0
+    }).format(num);
   };
 
   return (
     <div className="overflow-x-auto">
       <table className="w-full">
-        <thead className="bg-gray-50 text-sm text-gray-500">
+        <thead className="bg-gray-50">
           <tr>
-            <th 
-              onClick={() => handleSort('date')}
-              className="px-6 py-4 text-left cursor-pointer hover:text-gray-700"
-            >
-              Date {sortBy === 'date' && (sortDirection === 'asc' ? '↑' : '↓')}
-            </th>
-            <th 
-              onClick={() => handleSort('description')}
-              className="px-6 py-4 text-left cursor-pointer hover:text-gray-700"
-            >
-              Description {sortBy === 'description' && (sortDirection === 'asc' ? '↑' : '↓')}
-            </th>
-            <th className="px-6 py-4 text-left">Category</th>
-            <th className="px-6 py-4 text-left">Tags</th>
-            <th 
-              onClick={() => handleSort('amount')}
-              className="px-6 py-4 text-right cursor-pointer hover:text-gray-700"
-            >
-              Amount {sortBy === 'amount' && (sortDirection === 'asc' ? '↑' : '↓')}
-            </th>
+            {['Date', 'Description', 'Category', 'Amount'].map((header, index) => (
+              <th 
+                key={header}
+                onClick={() => handleSort(header.toLowerCase() as keyof Transaction)}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+              >
+                <div className="flex items-center space-x-1">
+                  <span>{header}</span>
+                  {sortField === header.toLowerCase() && (
+                    <span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
+                  )}
+                </div>
+              </th>
+            ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200">
+        <tbody className="bg-white divide-y divide-gray-200">
           {sortedTransactions.map((transaction) => (
-            <tr key={transaction.id} className="text-sm">
-              <td className="px-6 py-4 text-gray-600">
-                {new Date(transaction.date).toLocaleDateString()}
+            <tr key={transaction.id}>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                {transaction.date}
               </td>
-              <td className="px-6 py-4 text-gray-900 font-medium">
+              <td className="px-6 py-4 text-sm text-gray-900">
                 {transaction.description}
               </td>
-              <td className="px-6 py-4">
-                <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">
+              <td className="px-6 py-4 text-sm">
+                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  {
+                    'Salary': 'bg-green-100 text-green-800',
+                    'Rent': 'bg-red-100 text-red-800',
+                    'Utilities': 'bg-yellow-100 text-yellow-800',
+                    'Food': 'bg-blue-100 text-blue-800',
+                    'Transport': 'bg-purple-100 text-purple-800',
+                    'Entertainment': 'bg-pink-100 text-pink-800',
+                    'Shopping': 'bg-indigo-100 text-indigo-800',
+                  }[transaction.category] || 'bg-gray-100 text-gray-800'
+                }`}>
                   {transaction.category}
                 </span>
               </td>
-              <td className="px-6 py-4">
-                <div className="flex gap-1 flex-wrap">
-                  {transaction.tags.map(tag => (
-                    <span 
-                      key={tag}
-                      className="px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-xs"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </td>
-              <td className={`px-6 py-4 text-right font-medium ${
+              <td className={`px-6 py-4 whitespace-nowrap text-sm font-medium ${
                 transaction.type === 'income' ? 'text-green-600' : 'text-red-600'
               }`}>
-                {transaction.type === 'income' ? '+' : '-'}€{transaction.amount.toLocaleString()}
+                {formatNumber(transaction.amount)}
               </td>
             </tr>
           ))}

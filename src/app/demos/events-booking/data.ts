@@ -53,5 +53,70 @@ export const eventsData: Event[] = [
     organizer: 'Startup Dublin',
     category: 'Business',
     price: 25
+  },
+  {
+    id: 21,
+    title: 'AI in Healthcare Symposium',
+    date: '2024-05-10',
+    time: '10:00',
+    location: 'Trinity College Dublin',
+    capacity: 150,
+    booked: 98,
+    description: 'Exploring the latest applications of AI in healthcare and medical research.',
+    organizer: 'Health Tech Ireland',
+    category: 'Tech',
+    price: 199
+  },
+  {
+    id: 22,
+    title: 'Creative Writing Workshop',
+    date: '2024-05-15',
+    time: '18:30',
+    location: 'Writers Museum',
+    capacity: 30,
+    booked: 12,
+    description: 'An intimate workshop for aspiring writers to develop their craft.',
+    organizer: 'Dublin Writers',
+    category: 'Creative',
+    price: 45
+  },
+  {
+    id: 23,
+    title: 'Sustainable Business Forum',
+    date: '2024-05-20',
+    time: '09:00',
+    location: 'The Alex Hotel',
+    capacity: 120,
+    booked: 89,
+    description: 'Leading discussions on sustainable business practices and green innovation.',
+    organizer: 'Green Business Ireland',
+    category: 'Business',
+    price: 175
+  },
+  {
+    id: 24,
+    title: 'UX Design Masterclass',
+    date: '2024-06-05',
+    time: '13:00',
+    location: 'Design Hub',
+    capacity: 40,
+    booked: 35,
+    description: 'Advanced UX design principles and practical applications.',
+    organizer: 'Design Ireland',
+    category: 'Workshop',
+    price: 299
+  },
+  {
+    id: 25,
+    title: 'FinTech Innovation Summit',
+    date: '2024-06-15',
+    time: '09:30',
+    location: 'IFSC Conference Centre',
+    capacity: 300,
+    booked: 245,
+    description: 'The largest gathering of FinTech innovators in Ireland.',
+    organizer: 'FinTech Ireland',
+    category: 'Conference',
+    price: 399
   }
 ]; 
