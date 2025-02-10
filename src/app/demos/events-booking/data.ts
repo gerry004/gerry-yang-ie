@@ -17,7 +17,7 @@ export const eventsData: Event[] = [
   {
     id: 1,
     title: 'Tech Conference 2024',
-    date: '2025-02-13',
+    date: '2025-02-17',
     time: '09:00',
     location: 'Dublin Convention Centre',
     capacity: 500,
@@ -30,7 +30,7 @@ export const eventsData: Event[] = [
   {
     id: 2,
     title: 'Digital Marketing Workshop',
-    date: '2025-02-13',
+    date: '2025-02-23',
     time: '14:00',
     location: 'The Marker Hotel',
     capacity: 50,
@@ -44,7 +44,7 @@ export const eventsData: Event[] = [
   {
     id: 20,
     title: 'Startup Pitch Night',
-    date: '2025-02-13',
+    date: '2025-02-28',
     time: '18:00',
     location: 'Dogpatch Labs',
     capacity: 200,
@@ -57,7 +57,7 @@ export const eventsData: Event[] = [
   {
     id: 21,
     title: 'AI in Healthcare Symposium',
-    date: '2025-02-13',
+    date: '2025-02-15',
     time: '10:00',
     location: 'Trinity College Dublin',
     capacity: 150,
@@ -70,7 +70,7 @@ export const eventsData: Event[] = [
   {
     id: 22,
     title: 'Creative Writing Workshop',
-    date: '2025-02-13',
+    date: '2025-02-19',
     time: '18:30',
     location: 'Writers Museum',
     capacity: 30,

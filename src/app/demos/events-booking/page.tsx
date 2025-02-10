@@ -8,7 +8,7 @@ import EventModal from './components/EventModal';
 
 export default function EventsBookingDemo() {
   const [isClient, setIsClient] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -17,7 +17,7 @@ export default function EventsBookingDemo() {
   }, []);
 
   const filteredEvents = eventsData.filter(event => {
-    const matchesDate = event.date === selectedDate;
+    const matchesDate = !selectedDate || event.date === selectedDate;
     const matchesCategory = selectedCategory === 'All' || event.category === selectedCategory;
     return matchesDate && matchesCategory;
   });
@@ -38,16 +38,8 @@ export default function EventsBookingDemo() {
 
       <main className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-12 gap-8">
-          {/* Calendar Section */}
-          <div className="lg:col-span-4 space-y-6">
-            <div className="bg-white rounded-xl border border-gray-200 p-4">
-              <Calendar 
-                events={eventsData}
-                selectedDate={selectedDate}
-                onSelectDate={setSelectedDate}
-              />
-            </div>
-            
+          {/* Categories */}
+          <div className="lg:col-span-2">
             <div className="bg-white rounded-xl border border-gray-200 p-4">
               <h3 className="font-semibold text-gray-900 mb-2">Categories</h3>
               <div className="space-y-2">
@@ -69,7 +61,30 @@ export default function EventsBookingDemo() {
           </div>
 
           {/* Events Grid */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-semibold text-gray-900">
+                {selectedDate ? (
+                  <span>Events for {new Date(selectedDate).toLocaleDateString('en-IE', { 
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                  })}</span>
+                ) : (
+                  'All Upcoming Events'
+                )}
+              </h2>
+              {selectedDate && (
+                <button
+                  onClick={() => setSelectedDate(null)}
+                  className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                >
+                  Show All Events
+                </button>
+              )}
+            </div>
+
             {filteredEvents.length > 0 ? (
               <div className="grid sm:grid-cols-2 gap-6">
                 {filteredEvents.map((event) => (
@@ -82,10 +97,21 @@ export default function EventsBookingDemo() {
               </div>
             ) : (
               <div className="text-center py-12 bg-white rounded-xl border border-gray-200">
-                <p className="text-gray-500">No events found for this date{selectedCategory !== 'All' ? ' and category' : ''}.</p>
-                <p className="text-sm text-gray-400 mt-1">Try selecting a different date{selectedCategory !== 'All' ? ' or category' : ''}.</p>
+                <p className="text-gray-500">No events found{selectedDate ? ' for this date' : ''}{selectedCategory !== 'All' ? ' and category' : ''}.</p>
+                <p className="text-sm text-gray-400 mt-1">Try selecting a different {selectedDate ? 'date' : ''}{selectedDate && selectedCategory !== 'All' ? ' or ' : ''}{selectedCategory !== 'All' ? 'category' : ''}.</p>
               </div>
             )}
+          </div>
+
+          {/* Calendar Section */}
+          <div className="lg:col-span-3">
+            <div className="bg-white rounded-xl border border-gray-200 p-4 sticky top-24">
+              <Calendar 
+                events={eventsData}
+                selectedDate={selectedDate}
+                onSelectDate={setSelectedDate}
+              />
+            </div>
           </div>
         </div>
       </main>

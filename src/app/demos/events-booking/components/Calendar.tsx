@@ -5,12 +5,16 @@ import { Event } from '../data';
 
 interface CalendarProps {
   events: Event[];
-  selectedDate: string;
+  selectedDate: string | null;
   onSelectDate: (date: string) => void;
 }
 
 export default function Calendar({ events, selectedDate, onSelectDate }: CalendarProps) {
-  const [currentMonth, setCurrentMonth] = useState(() => selectedDate.slice(0, 7)); // YYYY-MM
+  // Initialize with current month if no date selected
+  const [currentMonth, setCurrentMonth] = useState(() => {
+    const today = new Date();
+    return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+  });
 
   const { days, firstDayOfMonth } = useMemo(() => {
     const date = new Date(`${currentMonth}-01T00:00:00`);
@@ -47,13 +51,13 @@ export default function Calendar({ events, selectedDate, onSelectDate }: Calenda
   const goToPreviousMonth = () => {
     const [year, month] = currentMonth.split('-');
     const date = new Date(+year, +month - 2);
-    setCurrentMonth(date.toISOString().slice(0, 7));
+    setCurrentMonth(`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`);
   };
 
   const goToNextMonth = () => {
     const [year, month] = currentMonth.split('-');
     const date = new Date(+year, +month);
-    setCurrentMonth(date.toISOString().slice(0, 7));
+    setCurrentMonth(`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`);
   };
 
   return (
