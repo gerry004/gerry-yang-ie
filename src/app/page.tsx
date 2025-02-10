@@ -27,10 +27,10 @@ export default function Home() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                Optimising Dublin's Businesses with Custom Software Solutions
+                Optimising Dublin's Businesses
               </h1>
               <p className="text-xl text-gray-300 mb-8">
-                Transforming your business operations with AI-powered software solutions
+                Helping you cut costs and automate processes by transforming your business operations with custom AI-powered software solutions.
               </p>
               <div className="flex gap-4 justify-center">
                 <button 
@@ -126,19 +126,19 @@ const projects = [
   {
     title: "Client Management System",
     description: "Streamline your client interactions and data management",
-    image: "/client-mgmt.jpg",
+    image: "/event-booking.png",
     demoUrl: "/demos/client-management"
   },
   {
     title: "Events Booking Platform",
     description: "Seamless event scheduling and management solution",
-    image: "/events-booking.jpg",
+    image: "/event-booking.png",
     demoUrl: "/demos/events-booking"
   },
   {
     title: "Data Dashboard",
     description: "Real-time insights and analytics for your business",
-    image: "/data-dashboard.jpg",
+    image: "/finance-dashboard.png",
     demoUrl: "/demos/data-dashboard"
   },
 ];

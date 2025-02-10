@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -17,8 +19,14 @@ export default function ProjectCard({ title, description, image, demoUrl }: Proj
       onClick={handleClick}
       className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden hover:scale-105 transition-transform cursor-pointer group"
     >
-      <div className="h-48 bg-gray-700 relative overflow-hidden">
-        {/* Add image here when available */}
+      <div className="h-64 bg-gray-700 relative overflow-hidden">
+        <Image 
+          src={image} 
+          alt={title} 
+          fill
+          className="object-cover w-full h-full"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
           <span className="text-blue-400 font-medium">View Demo →</span>
         </div>
