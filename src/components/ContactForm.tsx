@@ -21,11 +21,21 @@ export default function ContactForm() {
       </div>
       <div>
         <label htmlFor="website" className="block text-sm font-medium mb-2">
-          Company Website URL
+          Company Website
         </label>
         <input
           type="url"
           id="website"
+          className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium mb-2">
+          Message
+        </label>
+        <textarea
+          id="message"
           className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
           required
         />

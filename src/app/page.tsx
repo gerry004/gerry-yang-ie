@@ -30,7 +30,7 @@ export default function Home() {
                 Optimising Dublin's Businesses
               </h1>
               <p className="text-xl text-gray-300 mb-8">
-                Helping you cut costs and automate processes by transforming your business operations with custom AI-powered software solutions.
+                Helping you cut costs, automate processes, and transform your business operations with custom software solutions, tailored to your needs.
               </p>
               <div className="flex gap-4 justify-center">
                 <button 
@@ -50,38 +50,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Enhanced Who You Are Section */}
-        <section id="about" className="relative w-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="light-spot-1 opacity-5" />
-            <div className="light-spot-2 opacity-5" />
-          </div>
-          <div className="container mx-auto px-4 py-32 relative z-10">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                Who You Are?
-              </h2>
-              <div className="grid md:grid-cols-2 gap-12">
-                <div className="space-y-6 bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50">
-                  <h3 className="text-2xl font-semibold text-blue-400">The Challenge</h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    You are a business owner. Customer demands are growing and your staff are stretched beyond capacity. 
-                    Menial tasks are taking over their day and they are losing sight of what is important. 
-                    You think "this is not how my business should run…"
-                  </p>
-                </div>
-                <div className="space-y-6 bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50">
-                  <h3 className="text-2xl font-semibold text-purple-400">The Solution</h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    You hear all the buzz with AI and know that your business needs to become more efficient to compete. 
-                    If only you had an extra team member to help… That's where we come in!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Enhanced Projects Section */}
         <section id="projects" className="relative w-full bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900">
           <div className="absolute inset-0 overflow-hidden">
@@ -90,7 +58,7 @@ export default function Home() {
           </div>
           <div className="container mx-auto px-4 py-32 relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Featured Projects
+              How Can We Help?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
@@ -126,7 +94,7 @@ const projects = [
   {
     title: "Client Management Systems",
     description: "Streamline your client interactions and data management",
-    image: "/event-booking.png",
+    image: "/client-management.png",
     demoUrl: "/demos/client-management"
   },
   {
