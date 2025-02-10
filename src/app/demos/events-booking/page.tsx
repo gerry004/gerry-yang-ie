@@ -1,62 +1,84 @@
 'use client';
 
+import { useState } from 'react';
+import Calendar from './components/Calendar';
+import EventCard from './components/EventCard';
+import EventModal from './components/EventModal';
+import { eventsData } from './data';
+import type { Event } from './data';
+
 export default function EventsBookingDemo() {
-  const events = [
-    { 
-      id: 1, 
-      title: 'Tech Conference 2024',
-      date: '2024-04-15',
-      time: '09:00',
-      location: 'Dublin Convention Centre',
-      capacity: 500,
-      booked: 342
-    },
-    // Add more dummy events
-  ];
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+
+  const filteredEvents = selectedDate
+    ? eventsData.filter(event => event.date === selectedDate)
+    : eventsData;
 
   return (
-    <div className="min-h-screen bg-gray-900">
-      <nav className="bg-gray-800 border-b border-gray-700">
+    <div className="min-h-screen bg-white">
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
-            <div className="text-xl font-bold text-white">Events Booking Platform</div>
+            <div className="text-xl font-bold text-gray-900">Events Booking Platform</div>
             <div className="flex items-center gap-4">
-              <button className="bg-purple-500 px-4 py-2 rounded-lg text-white">Create Event</button>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                Create Event
+              </button>
             </div>
           </div>
         </div>
       </nav>
 
       <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {events.map((event) => (
-            <div key={event.id} className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700">
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
-                <div className="space-y-2 text-gray-300">
-                  <p>📅 {event.date} at {event.time}</p>
-                  <p>📍 {event.location}</p>
-                  <div className="mt-4">
-                    <div className="flex justify-between text-sm mb-1">
-                      <span>Capacity</span>
-                      <span>{event.booked}/{event.capacity}</span>
-                    </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2">
-                      <div 
-                        className="bg-purple-500 h-2 rounded-full"
-                        style={{ width: `${(event.booked/event.capacity) * 100}%` }}
-                      />
-                    </div>
-                  </div>
-                  <button className="w-full mt-4 bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition-colors">
-                    Book Now
+        <div className="grid lg:grid-cols-12 gap-8">
+          {/* Calendar Section */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="bg-white rounded-xl border border-gray-200 p-4">
+              <Calendar 
+                events={eventsData}
+                selectedDate={selectedDate}
+                onSelectDate={setSelectedDate}
+              />
+            </div>
+            
+            <div className="bg-white rounded-xl border border-gray-200 p-4">
+              <h3 className="font-semibold text-gray-900 mb-2">Categories</h3>
+              <div className="space-y-2">
+                {['All', 'Tech', 'Business', 'Creative', 'Workshop', 'Conference'].map((category) => (
+                  <button
+                    key={category}
+                    className="block w-full text-left px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
+                  >
+                    {category}
                   </button>
-                </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Events Grid */}
+          <div className="lg:col-span-8">
+            <div className="grid sm:grid-cols-2 gap-6">
+              {filteredEvents.map((event) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  onClick={() => setSelectedEvent(event)}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </main>
+
+      {/* Event Details Modal */}
+      {selectedEvent && (
+        <EventModal
+          event={selectedEvent}
+          onClose={() => setSelectedEvent(null)}
+        />
+      )}
     </div>
   );
 } 
