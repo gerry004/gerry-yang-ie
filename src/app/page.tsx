@@ -51,7 +51,7 @@ export default function Home() {
         </section>
 
         {/* Enhanced Who You Are Section */}
-        <section id="about" className="relative w-full bg-gradient-to-b from-gray-900 to-gray-800">
+        <section id="about" className="relative w-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700">
           <div className="absolute inset-0 overflow-hidden">
             <div className="light-spot-1 opacity-5" />
             <div className="light-spot-2 opacity-5" />
@@ -83,7 +83,7 @@ export default function Home() {
         </section>
 
         {/* Enhanced Projects Section */}
-        <section id="projects" className="relative w-full bg-gradient-to-b from-gray-800 to-gray-900">
+        <section id="projects" className="relative w-full bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900">
           <div className="absolute inset-0 overflow-hidden">
             <div className="light-spot-2 opacity-5" />
             <div className="light-spot-3 opacity-5" />
@@ -101,7 +101,7 @@ export default function Home() {
         </section>
 
         {/* Enhanced Contact Form Section */}
-        <section id="contact" className="relative w-full bg-gradient-to-b from-gray-900 to-gray-800">
+        <section id="contact" className="relative w-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700">
           <div className="absolute inset-0 overflow-hidden">
             <div className="light-spot-1 opacity-5" />
             <div className="light-spot-3 opacity-5" />
@@ -127,15 +127,18 @@ const projects = [
     title: "Client Management System",
     description: "Streamline your client interactions and data management",
     image: "/client-mgmt.jpg",
+    demoUrl: "/demos/client-management"
   },
   {
     title: "Events Booking Platform",
     description: "Seamless event scheduling and management solution",
     image: "/events-booking.jpg",
+    demoUrl: "/demos/events-booking"
   },
   {
     title: "Data Dashboard",
     description: "Real-time insights and analytics for your business",
     image: "/data-dashboard.jpg",
+    demoUrl: "/demos/data-dashboard"
   },
 ];
