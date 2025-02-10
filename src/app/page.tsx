@@ -1,10 +1,32 @@
 'use client';
 
+import { useEffect } from 'react';
 import ProjectCard from '@/components/ProjectCard';
 import ContactForm from '@/components/ContactForm';
 import Navbar from '@/components/Navbar';
 
 export default function Home() {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const spots = document.querySelectorAll('.light-spot-1, .light-spot-2, .light-spot-3, .light-spot-4');
+      
+      spots.forEach((spot, index) => {
+        const speed = 1 - (index * 0.1); // Different parallax speeds
+        const yPos = scrolled * speed * 0.05; // Reduced movement speed
+        const scale = 1 + (scrolled * 0.0001 * speed);
+        // Removed rotation for a cleaner look
+        
+        if (spot instanceof HTMLElement) {
+          spot.style.transform = `translateY(${yPos}px) scale(${scale})`;
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -13,17 +35,15 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <div className="animated-background">
+        <div className="light-spot-1" />
+        <div className="light-spot-2" />
+        <div className="light-spot-3" />
+        <div className="light-spot-4" />
+      </div>
       <main className="relative">
-        {/* Hero Section with animated background */}
+        {/* Hero Section - removed background */}
         <section className="relative min-h-screen flex items-center">
-          <div className="absolute inset-0 bg-gray-900">
-            {/* Animated light spots */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="light-spot-1" />
-              <div className="light-spot-2" />
-              <div className="light-spot-3" />
-            </div>
-          </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
@@ -50,12 +70,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Enhanced Projects Section */}
-        <section id="projects" className="relative w-full bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="light-spot-2 opacity-5" />
-            <div className="light-spot-3 opacity-5" />
-          </div>
+        {/* Projects Section - removed background */}
+        <section id="projects" className="relative w-full">
           <div className="container mx-auto px-4 py-32 relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               How Can We Help?
@@ -68,12 +84,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Enhanced Contact Form Section */}
-        <section id="contact" className="relative w-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="light-spot-1 opacity-5" />
-            <div className="light-spot-3 opacity-5" />
-          </div>
+        {/* Contact Section - removed background */}
+        <section id="contact" className="relative w-full">
           <div className="container mx-auto px-4 py-32 relative z-10">
             <div className="max-w-2xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
