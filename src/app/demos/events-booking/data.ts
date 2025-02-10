@@ -17,7 +17,7 @@ export const eventsData: Event[] = [
   {
     id: 1,
     title: 'Tech Conference 2024',
-    date: '2024-04-15',
+    date: '2025-02-13',
     time: '09:00',
     location: 'Dublin Convention Centre',
     capacity: 500,
@@ -30,7 +30,7 @@ export const eventsData: Event[] = [
   {
     id: 2,
     title: 'Digital Marketing Workshop',
-    date: '2024-04-20',
+    date: '2025-02-13',
     time: '14:00',
     location: 'The Marker Hotel',
     capacity: 50,
@@ -44,7 +44,7 @@ export const eventsData: Event[] = [
   {
     id: 20,
     title: 'Startup Pitch Night',
-    date: '2024-06-30',
+    date: '2025-02-13',
     time: '18:00',
     location: 'Dogpatch Labs',
     capacity: 200,
@@ -57,7 +57,7 @@ export const eventsData: Event[] = [
   {
     id: 21,
     title: 'AI in Healthcare Symposium',
-    date: '2024-05-10',
+    date: '2025-02-13',
     time: '10:00',
     location: 'Trinity College Dublin',
     capacity: 150,
@@ -70,7 +70,7 @@ export const eventsData: Event[] = [
   {
     id: 22,
     title: 'Creative Writing Workshop',
-    date: '2024-05-15',
+    date: '2025-02-13',
     time: '18:30',
     location: 'Writers Museum',
     capacity: 30,
@@ -83,7 +83,7 @@ export const eventsData: Event[] = [
   {
     id: 23,
     title: 'Sustainable Business Forum',
-    date: '2024-05-20',
+    date: '2025-02-13',
     time: '09:00',
     location: 'The Alex Hotel',
     capacity: 120,
@@ -96,7 +96,7 @@ export const eventsData: Event[] = [
   {
     id: 24,
     title: 'UX Design Masterclass',
-    date: '2024-06-05',
+    date: '2025-02-13',
     time: '13:00',
     location: 'Design Hub',
     capacity: 40,
@@ -109,7 +109,7 @@ export const eventsData: Event[] = [
   {
     id: 25,
     title: 'FinTech Innovation Summit',
-    date: '2024-06-15',
+    date: '2025-02-14',
     time: '09:30',
     location: 'IFSC Conference Centre',
     capacity: 300,

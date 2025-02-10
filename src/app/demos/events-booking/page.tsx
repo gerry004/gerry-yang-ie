@@ -70,15 +70,22 @@ export default function EventsBookingDemo() {
 
           {/* Events Grid */}
           <div className="lg:col-span-8">
-            <div className="grid sm:grid-cols-2 gap-6">
-              {filteredEvents.map((event) => (
-                <EventCard
-                  key={event.id}
-                  event={event}
-                  onClick={() => setSelectedEvent(event)}
-                />
-              ))}
-            </div>
+            {filteredEvents.length > 0 ? (
+              <div className="grid sm:grid-cols-2 gap-6">
+                {filteredEvents.map((event) => (
+                  <EventCard
+                    key={event.id}
+                    event={event}
+                    onClick={() => setSelectedEvent(event)}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-xl border border-gray-200">
+                <p className="text-gray-500">No events found for this date{selectedCategory !== 'All' ? ' and category' : ''}.</p>
+                <p className="text-sm text-gray-400 mt-1">Try selecting a different date{selectedCategory !== 'All' ? ' or category' : ''}.</p>
+              </div>
+            )}
           </div>
         </div>
       </main>
