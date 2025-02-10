@@ -1,15 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { leadsData, dealsData } from './data';
+import TrendsChart from './components/TrendsChart';
+import RevenueChart from './components/RevenueChart';
+import LeadsPieChart from './components/LeadsPieChart';
+import ClientOnly from './components/ClientOnly';
 
 export default function ClientManagementDemo() {
-  const [activeTab, setActiveTab] = useState('dashboard');
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const router = useRouter();
 
   const formatNumber = (num: number) => {
     return new Intl.NumberFormat('en-IE', {
@@ -25,13 +24,33 @@ export default function ClientManagementDemo() {
   };
 
   const totalDealsAmount = dealsData.reduce((sum, deal) => sum + deal.amount, 0);
-  const topDeals = [...dealsData]
-    .sort((a, b) => b.amount - a.amount)
-    .slice(0, 5);
 
-  if (!isClient) {
-    return null;
-  }
+  const trendsData = [
+    { name: 'Jan', leads: 45, deals: 23 },
+    { name: 'Feb', leads: 52, deals: 27 },
+    { name: 'Mar', leads: 48, deals: 25 },
+    { name: 'Apr', leads: 61, deals: 30 },
+    { name: 'May', leads: 55, deals: 28 },
+    { name: 'Jun', leads: 67, deals: 35 },
+    { name: 'Jul', leads: 75, deals: 40 },
+  ];
+
+  const revenueData = [
+    { name: 'Jan', revenue: 125000 },
+    { name: 'Feb', revenue: 165000 },
+    { name: 'Mar', revenue: 145000 },
+    { name: 'Apr', revenue: 190000 },
+    { name: 'May', revenue: 158000 },
+    { name: 'Jun', revenue: 210000 },
+    { name: 'Jul', revenue: 245000 },
+  ];
+
+  const leadsPieData = [
+    { name: 'New', value: leadsByStatus.new, color: '#3b82f6' },
+    { name: 'Hot', value: leadsByStatus.hot, color: '#ef4444' },
+    { name: 'Cold', value: leadsByStatus.cold, color: '#9ca3af' },
+    { name: 'Contacted', value: leadsByStatus.contacted, color: '#22c55e' },
+  ];
 
   return (
     <div className="space-y-8">
@@ -57,49 +76,25 @@ export default function ClientManagementDemo() {
         </div>
       </div>
 
-      {/* Lead Status Distribution */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Wrap charts with ClientOnly */}
+      <ClientOnly>
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-          <h3 className="text-lg font-semibold mb-4">Lead Status Distribution</h3>
-          <div className="space-y-4">
-            {Object.entries(leadsByStatus).map(([status, count]) => (
-              <div key={status}>
-                <div className="flex justify-between text-sm mb-1">
-                  <span className="text-gray-400">{status}</span>
-                  <span>{count}</span>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div
-                    className="bg-blue-500 h-2 rounded-full"
-                    style={{
-                      width: `${(count / leadsData.length) * 100}%`,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          <h3 className="text-lg font-semibold mb-4">Leads & Deals Trends</h3>
+          <TrendsChart data={trendsData} />
         </div>
 
-        {/* Top Deals */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-          <h3 className="text-lg font-semibold mb-4">Top Deals</h3>
-          <div className="space-y-4">
-            {topDeals.map((deal) => (
-              <div
-                key={deal.id}
-                className="flex items-center justify-between p-3 bg-gray-700/50 rounded-lg"
-              >
-                <div>
-                  <p className="font-medium">{deal.company}</p>
-                  <p className="text-sm text-gray-400">{deal.stage}</p>
-                </div>
-                <p className="text-lg font-semibold">€{formatNumber(deal.amount)}</p>
-              </div>
-            ))}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-semibold mb-4">Lead Status Distribution</h3>
+            <LeadsPieChart data={leadsPieData} />
+          </div>
+
+          <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+            <h3 className="text-lg font-semibold mb-4">Monthly Revenue</h3>
+            <RevenueChart data={revenueData} />
           </div>
         </div>
-      </div>
+      </ClientOnly>
     </div>
   );
 } 

@@ -124,20 +124,20 @@ export default function Home() {
 
 const projects = [
   {
-    title: "Client Management System",
+    title: "Client Management Systems",
     description: "Streamline your client interactions and data management",
     image: "/event-booking.png",
     demoUrl: "/demos/client-management"
   },
   {
-    title: "Events Booking Platform",
-    description: "Seamless event scheduling and management solution",
+    title: "Booking Platforms",
+    description: "Seamless event scheduling and management solutions",
     image: "/event-booking.png",
     demoUrl: "/demos/events-booking"
   },
   {
-    title: "Data Dashboard",
-    description: "Real-time insights and analytics for your business",
+    title: "Finance Data Dashboards",
+    description: "Real-time insights and analytics for your businesss",
     image: "/finance-dashboard.png",
     demoUrl: "/demos/data-dashboard"
   },

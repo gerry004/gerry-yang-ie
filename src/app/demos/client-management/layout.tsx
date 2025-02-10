@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface SidebarItemProps {
   icon: string;
@@ -30,7 +30,14 @@ export default function ClientManagementLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const getActiveTab = () => {
+    if (pathname.includes('/leads')) return 'leads';
+    if (pathname.includes('/deals')) return 'deals';
+    return 'dashboard';
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -47,20 +54,20 @@ export default function ClientManagementLayout({
             <SidebarItem
               icon="📊"
               label="Dashboard"
-              isActive={activeTab === 'dashboard'}
-              onClick={() => setActiveTab('dashboard')}
+              isActive={getActiveTab() === 'dashboard'}
+              onClick={() => router.push('/demos/client-management')}
             />
             <SidebarItem
               icon="🎯"
               label="Leads"
-              isActive={activeTab === 'leads'}
-              onClick={() => setActiveTab('leads')}
+              isActive={getActiveTab() === 'leads'}
+              onClick={() => router.push('/demos/client-management/leads')}
             />
             <SidebarItem
               icon="💰"
               label="Deals"
-              isActive={activeTab === 'deals'}
-              onClick={() => setActiveTab('deals')}
+              isActive={getActiveTab() === 'deals'}
+              onClick={() => router.push('/demos/client-management/deals')}
             />
           </div>
 
