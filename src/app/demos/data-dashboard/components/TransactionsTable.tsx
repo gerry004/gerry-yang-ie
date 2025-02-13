@@ -40,7 +40,7 @@ export default function TransactionsTable({ transactions }: TransactionsTablePro
       <table className="w-full">
         <thead className="bg-gray-50">
           <tr>
-            {['Date', 'Description', 'Category', 'Amount'].map((header, index) => (
+            {['Date', 'Description', 'Category', 'Amount'].map((header) => (
               <th 
                 key={header}
                 onClick={() => handleSort(header.toLowerCase() as keyof Transaction)}

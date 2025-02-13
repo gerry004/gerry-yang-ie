@@ -101,7 +101,7 @@ export default function Calendar({ events, selectedDate, onSelectDate }: Calenda
         ))}
         
         {/* Calendar days */}
-        {days.map(({ date, dateString, hasEvents, eventCount }) => (
+        {days.map(({ date, dateString, hasEvents }) => (
           <button
             key={date}
             onClick={() => onSelectDate(dateString)}

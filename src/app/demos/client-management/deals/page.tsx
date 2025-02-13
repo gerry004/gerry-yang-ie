@@ -39,19 +39,19 @@ export default function DealsPage() {
             <table className="w-full">
               <thead className="bg-gray-700/50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('company')}>
                     Company
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('amount')}>
                     Amount
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('stage')}>
                     Stage
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('owner')}>
                     Owner
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('lastActivity')}>
                     Last Activity
                   </th>
                 </tr>

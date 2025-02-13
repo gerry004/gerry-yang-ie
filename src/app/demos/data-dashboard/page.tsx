@@ -2,11 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { monthlyData } from './data';
-import MonthPicker from './components/MonthPicker';
 import MetricCard from './components/MetricCard';
 import TransactionsTable from './components/TransactionsTable';
 import CategoryChart from './components/CategoryChart';
-import TagsChart from './components/TagsChart';
 
 export default function DataDashboardDemo() {
   const [isClient, setIsClient] = useState(false);

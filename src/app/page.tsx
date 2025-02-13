@@ -165,7 +165,7 @@ export default function Home() {
                     </div>
                     <div className="space-y-4">
                       <p className="text-xl text-gray-400">
-                        Manual processes. Disconnected tools. Endless spreadsheets. If your team spends more time fighting clunky software than serving customers, it's time for a change.
+                        Manual processes. Disconnected tools. Endless spreadsheets. If your team spends more time fighting clunky software than serving customers, it&apos;s time for a change.
                       </p>
                       <p className="text-xl text-gray-400">
                         We design custom software that automates workflows, unifies data, and turns chaos into clarity—so you can focus on growing your Dublin business.
@@ -256,7 +256,7 @@ export default function Home() {
                       Transform Operations with Software Built for Your Ambitions
                     </h2>
                     <p className="text-xl text-gray-400">
-                      Forget off-the-shelf solutions that never quite fit. We partner with Dublin businesses like yours to build tools that work the way YOU work. Whether you need to streamline client management, automate bookings, or turn data into actionable insights, we'll craft a system that cuts costs, saves time, and scales with your goals.
+                      Forget off-the-shelf solutions that never quite fit. We partner with Dublin businesses like yours to build tools that work the way YOU work. Whether you need to streamline client management, automate bookings, or turn data into actionable insights, we&apos;ll craft a system that cuts costs, saves time, and scales with your goals.
                     </p>
                   </div>
                 </div>
@@ -277,7 +277,7 @@ export default function Home() {
 
               <div className="grid gap-16">
                 {projects.map((project, index) => (
-                  <div key={project.title} className="animate-on-scroll">
+                  <div key={index} className="animate-on-scroll">
                     <a href={project.demoUrl} className="group relative block">
                       <div className="bg-[#f7f7f7] rounded-2xl p-6 lg:p-8 transition-transform duration-300 group-hover:-translate-y-1">
                         <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -361,10 +361,10 @@ export default function Home() {
           <div className="container mx-auto px-4 py-32 relative z-10">
             <div className="max-w-2xl mx-auto animate-on-scroll">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center text-gray-900">
-                Let's Optimise Your Business
+                Let&apos;s Optimise Your Business
               </h2>
               <p className="text-xl text-gray-600 text-center mb-12">
-                Ready to ditch inefficiencies? Whether you need a custom dashboard, CRM, or a full process automation overhaul, we'll craft a solution that fits.
+                Ready to ditch inefficiencies? Whether you need a custom dashboard, CRM, or a full process automation overhaul, we&apos;ll craft a solution that fits.
               </p>
               <div className="bg-[#f7f7f7] p-8 rounded-2xl">
                 <ContactForm />

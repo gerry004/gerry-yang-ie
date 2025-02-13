@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { leadsData, dealsData } from './data';
 import TrendsChart from './components/TrendsChart';
 import RevenueChart from './components/RevenueChart';
@@ -8,8 +7,6 @@ import LeadsPieChart from './components/LeadsPieChart';
 import ClientOnly from './components/ClientOnly';
 
 export default function ClientManagementDemo() {
-  const router = useRouter();
-
   const formatNumber = (num: number) => {
     return new Intl.NumberFormat('en-IE', {
       maximumFractionDigits: 0
