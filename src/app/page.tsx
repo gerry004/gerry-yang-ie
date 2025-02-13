@@ -244,23 +244,9 @@ export default function Home() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="mb-16">
-                <span className="bg-[#f7f7f7] text-gray-600 px-4 py-2 rounded-full text-sm font-medium">
-                  MODERN CRM STACK
-                </span>
-                <h2 className="text-4xl md:text-5xl font-bold mt-6 text-gray-900">
-                  One hub for all relationships
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black text-center animate-on-scroll">
+                  Sample Projects
                 </h2>
-                <p className="text-xl text-gray-600 mt-4 max-w-3xl">
-                  Manage sales, recruiting, partnerships, fundraising, & more. Accelerate prospecting with LinkedIn Extension. 
-                  Easily find and validate emails. Streamline your deal pipeline workflow and outreach efforts all from a single platform.
-                </p>
-                <div className="flex flex-wrap gap-3 mt-8">
-                  {['Custom Collections', 'Lists', 'Forms', 'Cadence', 'Activities', 'LinkedIn Extension', 'Automation'].map((tag) => (
-                    <span key={tag} className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg text-sm">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
 
               <div className="grid gap-16">
@@ -314,23 +300,32 @@ export default function Home() {
         </section>
 
         {/* Process Section */}
-        <section id="process" className="relative py-32">
+        <section id="process" className="relative py-32 bg-gray-900">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center animate-on-scroll">
+              <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white text-center animate-on-scroll">
                 A Simple, Transparent, Stress-Free Process
               </h2>
-              <div className="grid md:grid-cols-2 gap-8">
+              
+              <div className="relative">
+                {/* Timeline Line */}
+                <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-700 transform md:-translate-x-1/2" />
+                
                 {processSteps.map((step, index) => (
-                  <div key={step.title} className="animate-on-scroll">
-                    <div className="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50">
-                      <div className="flex items-center gap-4 mb-4">
-                        <span className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500/20 text-blue-400 font-medium">
-                          {index + 1}
-                        </span>
-                        <h3 className="text-xl font-bold text-gray-200">{step.title}</h3>
+                  <div key={step.title} className="animate-on-scroll mb-12 last:mb-0">
+                    <div className={`relative flex items-start ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                      {/* Timeline Node */}
+                      <div className="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-blue-500 border-4 border-gray-800 transform -translate-x-1/2 flex items-center justify-center">
+                        <span className="text-sm font-bold text-white">{index + 1}</span>
                       </div>
-                      <p className="text-gray-400">{step.description}</p>
+                      
+                      {/* Content */}
+                      <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
+                        <div className="bg-gray-800 p-6 rounded-xl border border-gray-700/50 backdrop-blur-sm">
+                          <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                          <p className="text-gray-400">{step.description}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
