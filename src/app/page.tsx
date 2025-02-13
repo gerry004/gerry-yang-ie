@@ -151,34 +151,69 @@ export default function Home() {
               {/* First Problem */}
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="animate-on-scroll">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                    Software Should Simplify Your Work - Not Complicate It
-                  </h2>
-                  <p className="text-xl text-gray-400">
-                    Manual processes. Disconnected tools. Endless spreadsheets. If your team spends more time fighting clunky software than serving customers, it's time for a change. We design custom software that automates workflows, unifies data, and turns chaos into clarity—so you can focus on growing your Dublin business.
-                  </p>
+                  <div className="bg-gray-800/80 p-8 rounded-2xl">
+                    <div className="mb-8">
+                      <div className="inline-block bg-red-500/10 px-4 py-2 rounded-lg mb-4">
+                        <span className="text-red-400 font-medium">The Problem</span>
+                      </div>
+                      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                        Software Should Simplify Your Work
+                      </h2>
+                      <h3 className="text-2xl text-white/80 font-semibold mb-6">
+                        Not Complicate It
+                      </h3>
+                    </div>
+                    <div className="space-y-4">
+                      <p className="text-xl text-gray-400">
+                        Manual processes. Disconnected tools. Endless spreadsheets. If your team spends more time fighting clunky software than serving customers, it's time for a change.
+                      </p>
+                      <p className="text-xl text-gray-400">
+                        We design custom software that automates workflows, unifies data, and turns chaos into clarity—so you can focus on growing your Dublin business.
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 {/* Animated Illustration */}
                 <div className="animate-on-scroll">
-                  <div className="bg-gray-800 rounded-2xl p-8">
-                    <div className="space-y-4">
-                      {/* Animated Process Flow */}
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center">
-                          <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                          </svg>
+                  <div className="bg-gray-800/80 rounded-2xl p-8">
+                    <div className="space-y-6">
+                      {/* Before Process */}
+                      <div className="relative">
+                        <div className="absolute -left-2 top-1/2 w-4 h-4 rounded-full bg-red-500/20 transform -translate-y-1/2" />
+                        <div className="flex items-center gap-4 bg-gray-900/50 p-4 rounded-xl">
+                          <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center">
+                            <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </div>
+                          <div className="flex-1">
+                            <div className="h-4 w-3/4 bg-gray-700/50 rounded animate-pulse" />
+                            <div className="h-3 w-1/2 bg-gray-700/30 rounded mt-2 animate-pulse delay-75" />
+                          </div>
                         </div>
-                        <div className="flex-1 h-16 bg-gray-700/50 rounded-xl animate-pulse" />
                       </div>
-                      {/* Transformed Process */}
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">
-                          <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
+                      
+                      {/* Arrow */}
+                      <div className="flex justify-center">
+                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                      </div>
+
+                      {/* After Process */}
+                      <div className="relative">
+                        <div className="absolute -left-2 top-1/2 w-4 h-4 rounded-full bg-green-500/20 transform -translate-y-1/2" />
+                        <div className="flex items-center gap-4 bg-gray-900/50 p-4 rounded-xl">
+                          <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">
+                            <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <div className="flex-1">
+                            <div className="h-4 w-full bg-gray-700/50 rounded animate-pulse" />
+                            <div className="h-3 w-2/3 bg-gray-700/30 rounded mt-2 animate-pulse delay-75" />
+                          </div>
                         </div>
-                        <div className="flex-1 h-16 bg-gray-700/50 rounded-xl animate-pulse delay-150" />
                       </div>
                     </div>
                   </div>
@@ -189,20 +224,23 @@ export default function Home() {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Animated Illustration */}
                 <div className="animate-on-scroll order-2 lg:order-1">
-                  <div className="bg-gray-800 rounded-2xl p-8">
+                  <div className="bg-gray-800/80 rounded-2xl p-8">
                     <div className="grid grid-cols-2 gap-4">
                       {[1, 2, 3, 4].map((i) => (
                         <div 
                           key={i}
-                          className="aspect-square bg-gray-700/50 rounded-xl overflow-hidden"
+                          className="aspect-square bg-gray-900/50 rounded-xl overflow-hidden p-4"
                         >
-                          <div className="w-full h-full bg-gradient-to-br from-gray-700/50 to-gray-600/50 animate-pulse" style={{
+                          <div className="w-full h-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg animate-pulse" style={{
                             animationDelay: `${i * 150}ms`
-                          }} />
+                          }}>
+                            <div className="h-2 w-2/3 bg-gray-700/50 rounded mt-2" />
+                            <div className="h-2 w-1/2 bg-gray-700/30 rounded mt-2" />
+                          </div>
                         </div>
                       ))}
                     </div>
-                    <div className="mt-4 flex justify-center">
+                    <div className="mt-6 flex justify-center">
                       <div className="px-4 py-2 bg-blue-500/10 rounded-lg">
                         <span className="text-blue-400 text-sm font-medium">Scalable Solutions</span>
                       </div>
@@ -210,12 +248,17 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="animate-on-scroll order-1 lg:order-2">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                    Transform Operations with Software Built for Your Ambitions
-                  </h2>
-                  <p className="text-xl text-gray-400">
-                    Forget off-the-shelf solutions that never quite fit. We partner with Dublin businesses like yours to build tools that work the way YOU work. Whether you need to streamline client management, automate bookings, or turn data into actionable insights, we'll craft a system that cuts costs, saves time, and scales with your goals.
-                  </p>
+                  <div className="bg-gray-800/80 p-8 rounded-2xl">
+                    <div className="inline-block bg-blue-500/10 px-4 py-2 rounded-lg mb-4">
+                      <span className="text-blue-400 font-medium">The Solution</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                      Transform Operations with Software Built for Your Ambitions
+                    </h2>
+                    <p className="text-xl text-gray-400">
+                      Forget off-the-shelf solutions that never quite fit. We partner with Dublin businesses like yours to build tools that work the way YOU work. Whether you need to streamline client management, automate bookings, or turn data into actionable insights, we'll craft a system that cuts costs, saves time, and scales with your goals.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -300,7 +343,7 @@ export default function Home() {
                       
                       {/* Content */}
                       <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
-                        <div className="bg-gray-800 p-6 rounded-xl border border-gray-700/50 backdrop-blur-sm">
+                        <div className="bg-gray-800 p-6 rounded-xl border border-gray-700/50">
                           <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
                           <p className="text-gray-400">{step.description}</p>
                         </div>
@@ -366,10 +409,14 @@ const processSteps = [
   },
   {
     title: "Development",
-    description: "We'll work with you to design, build, and test the software."
+    description: "We'll work with you to design, build, and test your tailored software."
   },
   {
     title: "Delivery",
-    description: "We'll deliver the software and provide ongoing support."
+    description: "We'll help you integrate your tailored software seemlessly into your business."
+  },
+  {
+    title: "Support",
+    description: "We'll provide ongoing support to ensure your business thrives."
   }
 ];
