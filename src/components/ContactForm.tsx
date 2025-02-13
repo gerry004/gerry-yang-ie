@@ -9,46 +9,46 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-2">
+        <label htmlFor="name" className="block text-sm text-gray-800 font-medium mb-2">
           Name
         </label>
         <input
           type="text"
           id="name"
-          className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full px-4 py-2 border border-gray-200 rounded-lg text-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
           required
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-2">
+        <label htmlFor="email" className="block text-sm text-gray-800 font-medium mb-2">
           Email
         </label>
         <input
           type="email"
           id="email"
-          className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full px-4 py-2 border border-gray-200 rounded-lg text-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
           required
         />
       </div>
       <div>
-        <label htmlFor="website" className="block text-sm font-medium mb-2">
+        <label htmlFor="website" className="block text-sm text-gray-800 font-medium mb-2">
           Company Website
         </label>
         <input
           type="url"
           id="website"
-          className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full px-4 py-2 border border-gray-200 rounded-lg text-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
           required
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-2">
+        <label htmlFor="message" className="block text-sm text-gray-800 font-medium mb-2">
           Message
         </label>
         <textarea
           id="message"
           rows={4}
-          className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full px-4 py-2 border border-gray-200 rounded-lg text-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
           required
         />
       </div>
