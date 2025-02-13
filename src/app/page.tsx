@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import ProjectCard from '@/components/ProjectCard';
 import ContactForm from '@/components/ContactForm';
 import Navbar from '@/components/Navbar';
@@ -27,6 +27,33 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target); // Stop observing once animation is triggered
+          }
+        });
+      },
+      {
+        threshold: 0.15, // Trigger when 10% of the element is visible
+        rootMargin: '50px', // Start animation slightly before element comes into view
+      }
+    );
+
+    // Select all elements to animate
+    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+      if (element instanceof HTMLElement) {
+        element.style.opacity = '0'; // Set initial opacity
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -45,7 +72,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto text-center animate-on-scroll">
               <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                 Optimising Dublin's Businesses
               </h1>
@@ -69,7 +96,7 @@ export default function Home() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto space-y-24">
               {/* First Problem */}
-              <div className="text-center">
+              <div className="text-center animate-on-scroll">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                   Software Should Simplify Your Work - Not Complicate It
                 </h2>
@@ -79,7 +106,7 @@ export default function Home() {
               </div>
 
               {/* Second Problem */}
-              <div className="text-center">
+              <div className="text-center animate-on-scroll">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                   Transform Operations with Software Built for Your Ambitions
                 </h2>
@@ -94,12 +121,14 @@ export default function Home() {
         {/* Sample Work Section */}
         <section id="projects" className="relative w-full">
           <div className="container mx-auto px-4 py-32 relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center animate-on-scroll">
               How Can We Help?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
-                <ProjectCard key={project.title} {...project} />
+                <div key={project.title} className="animate-on-scroll">
+                  <ProjectCard {...project} />
+                </div>
               ))}
             </div>
           </div>
@@ -109,19 +138,21 @@ export default function Home() {
         <section id="process" className="relative py-32">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center animate-on-scroll">
                 A Simple, Transparent, Stress-Free Process
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {processSteps.map((step, index) => (
-                  <div key={step.title} className="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50">
-                    <div className="flex items-center gap-4 mb-4">
-                      <span className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500/20 text-blue-400 font-medium">
-                        {index + 1}
-                      </span>
-                      <h3 className="text-xl font-bold text-gray-200">{step.title}</h3>
+                  <div key={step.title} className="animate-on-scroll">
+                    <div className="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50">
+                      <div className="flex items-center gap-4 mb-4">
+                        <span className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500/20 text-blue-400 font-medium">
+                          {index + 1}
+                        </span>
+                        <h3 className="text-xl font-bold text-gray-200">{step.title}</h3>
+                      </div>
+                      <p className="text-gray-400">{step.description}</p>
                     </div>
-                    <p className="text-gray-400">{step.description}</p>
                   </div>
                 ))}
               </div>
@@ -132,7 +163,7 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" className="relative w-full">
           <div className="container mx-auto px-4 py-32 relative z-10">
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto animate-on-scroll">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                 Let's Optimise Your Business
               </h2>

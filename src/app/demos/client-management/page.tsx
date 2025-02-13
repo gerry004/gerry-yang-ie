@@ -78,20 +78,22 @@ export default function ClientManagementDemo() {
 
       {/* Wrap charts with ClientOnly */}
       <ClientOnly>
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-          <h3 className="text-lg font-semibold mb-4">Leads & Deals Trends</h3>
-          <TrendsChart data={trendsData} />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="space-y-6">
           <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-            <h3 className="text-lg font-semibold mb-4">Lead Status Distribution</h3>
-            <LeadsPieChart data={leadsPieData} />
+            <h3 className="text-lg font-semibold mb-4">Leads & Deals Trends</h3>
+            <TrendsChart data={trendsData} />
           </div>
 
-          <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-            <h3 className="text-lg font-semibold mb-4">Monthly Revenue</h3>
-            <RevenueChart data={revenueData} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+              <h3 className="text-lg font-semibold mb-4">Lead Status Distribution</h3>
+              <LeadsPieChart data={leadsPieData} />
+            </div>
+
+            <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+              <h3 className="text-lg font-semibold mb-4">Monthly Revenue</h3>
+              <RevenueChart data={revenueData} />
+            </div>
           </div>
         </div>
       </ClientOnly>
