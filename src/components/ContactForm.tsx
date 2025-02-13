@@ -20,6 +20,17 @@ export default function ContactForm() {
         />
       </div>
       <div>
+        <label htmlFor="email" className="block text-sm font-medium mb-2">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          required
+        />
+      </div>
+      <div>
         <label htmlFor="website" className="block text-sm font-medium mb-2">
           Company Website
         </label>
@@ -36,6 +47,7 @@ export default function ContactForm() {
         </label>
         <textarea
           id="message"
+          rows={4}
           className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
           required
         />
@@ -44,7 +56,7 @@ export default function ContactForm() {
         type="submit"
         className="w-full bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-colors"
       >
-        Send Message
+        Submit
       </button>
     </form>
   );
