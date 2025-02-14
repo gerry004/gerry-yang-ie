@@ -7,25 +7,6 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Home() {
   useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const spots = document.querySelectorAll('.light-spot-1, .light-spot-2, .light-spot-3, .light-spot-4');
-      
-      spots.forEach((spot, index) => {
-        const speed = 1 - (index * 0.1); // Different parallax speeds
-        const yPos = scrolled * speed * 0.05; // Reduced movement speed
-        const scale = 1 + (scrolled * 0.0001 * speed);
-        if (spot instanceof HTMLElement) {
-          spot.style.transform = `translateY(${yPos}px) scale(${scale})`;
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
