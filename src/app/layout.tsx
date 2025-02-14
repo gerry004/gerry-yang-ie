@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gerry Yang",
+  title: "Optimising Dublin Businesses",
   description: "Custom Software Solutions for Dublin's Businesses",
 };
 
