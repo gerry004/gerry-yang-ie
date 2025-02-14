@@ -144,7 +144,7 @@ export default function Home() {
         </section>
 
         {/* Problems Section */}
-        <section id="problems" className="relative py-32 bg-gray-900">
+        <section id="about" className="relative py-32 bg-gray-900">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-5xl mx-auto space-y-32">
               {/* First Problem */}
@@ -161,7 +161,7 @@ export default function Home() {
                     </div>
                     <div className="space-y-4">
                       <p className="text-gray-400">
-                        You're a driven business owner, but...
+                        You&apos;re a driven business owner, but...
                       </p>
                       <ul className="space-y-3 text-gray-400">
                         <li className="flex items-start gap-3">
