@@ -6,17 +6,23 @@ Subheadline:
 CTA Button: 
 - Tell Me More
 
-# Problem Section
-Headline: 
-- Software Should Simplify Your Work - Not Complicate It
-Body Paragraph: 
-- Manual processes. Disconnected tools. Endless spreadsheets. If your team spends more time fighting clunky software than serving customers, it’s time for a change. We design custom software that automates workflows, unifies data, and turns chaos into clarity—so you can focus on growing your Dublin business.
+# Who You Are
+Coloured Tag: Who You Are
+Headline: Drowning in Busywork, Not Growing Your Business?
+Body:
+You’re a driven business owner, but...
+- Your team wastes hours on repetitive, menial tasks instead of delighting customers.
+- Your data is scattered across spreadsheets, emails, and apps—making it impossible to spot trends or act decisively.
+- Your tools create more work, not less, with clunky interfaces and disconnected workflows.
 
-# Problem Section
-Headline: 
-- Transform Operations with Software Built for Your Ambitions
-Body Paragraph: 
-- Forget off-the-shelf solutions that never quite fit. We partner with Dublin businesses like yours to build tools that work the way YOU work. Whether you need to streamline client management, automate bookings, or turn data into actionable insights, we’ll craft a system that cuts costs, saves time, and scales with your goals.
+# How We Help
+Coloured Tag: How We Help
+Headline: Tailored Software That Optimises Your Business
+Body:
+We design custom software that...
+- Automates the grunt work → Free your team to focus on customers, not busywork.
+- Centralizes your data → Turn fragmented numbers into clear, actionable insights.
+- Simplifies your tools → Replace clunky apps with one intuitive system built for your workflow.
 
 # Sample Work:
 Headline: Data-Driven Dashboards

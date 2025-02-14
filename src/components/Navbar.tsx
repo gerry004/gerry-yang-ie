@@ -15,7 +15,7 @@ export default function Navbar() {
             GY
           </div>
           <div className="hidden md:flex items-center space-x-1">
-            {['Problems', 'Projects', 'Process', 'Contact'].map((item) => (
+            {['About', 'Projects', 'Process', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}

@@ -76,8 +76,7 @@ export default function Home() {
                 <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-gray-900" style={{ fontFamily: 'var(--font-geist-sans)' }}>
                   Optimising{' '}
                   <span className="relative">
-                    <span className="relative z-10">Dublin Business</span>
-                    <div className="absolute bottom-2 left-0 w-full h-4 bg-[#FFE168] -z-0"></div>
+                    <span className="relative z-10">Dublin Businesses</span>
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 mb-8 max-w-xl">
@@ -153,66 +152,63 @@ export default function Home() {
                 <div className="animate-on-scroll">
                   <div className="bg-gray-800/80 p-8 rounded-2xl">
                     <div className="mb-8">
-                      <div className="inline-block bg-red-500/10 px-4 py-2 rounded-lg mb-4">
-                        <span className="text-red-400 font-medium">The Problem</span>
-                      </div>
+                      <span className="px-4 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-4 inline-block">
+                        Who You Are
+                      </span>
                       <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-                        Software Should Simplify Your Work
+                        Drowning in Busywork, Not Growing Your Business?
                       </h2>
-                      <h3 className="text-2xl text-white/80 font-semibold mb-6">
-                        Not Complicate It
-                      </h3>
                     </div>
                     <div className="space-y-4">
-                      <p className="text-xl text-gray-400">
-                        Manual processes. Disconnected tools. Endless spreadsheets. If your team spends more time fighting clunky software than serving customers, it&apos;s time for a change.
+                      <p className="text-gray-400">
+                        You're a driven business owner, but...
                       </p>
-                      <p className="text-xl text-gray-400">
-                        We design custom software that automates workflows, unifies data, and turns chaos into clarity—so you can focus on growing your Dublin business.
-                      </p>
+                      <ul className="space-y-3 text-gray-400">
+                        <li className="flex items-start gap-3">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span>Your team wastes hours on repetitive, menial tasks instead of delighting customers.</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span>Your data is scattered across spreadsheets, emails, and apps—making it impossible to spot trends or act decisively.</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span>Your tools create more work, not less, with clunky interfaces and disconnected workflows.</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
-                {/* Animated Illustration */}
+                {/* Illustration showing messy data */}
                 <div className="animate-on-scroll">
                   <div className="bg-gray-800/80 rounded-2xl p-8">
-                    <div className="space-y-6">
-                      {/* Before Process */}
-                      <div className="relative">
-                        <div className="absolute -left-2 top-1/2 w-4 h-4 rounded-full bg-red-500/20 transform -translate-y-1/2" />
-                        <div className="flex items-center gap-4 bg-gray-900/50 p-4 rounded-xl">
-                          <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center">
-                            <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                          </div>
-                          <div className="flex-1">
-                            <div className="h-4 w-3/4 bg-gray-700/50 rounded animate-pulse" />
-                            <div className="h-3 w-1/2 bg-gray-700/30 rounded mt-2 animate-pulse delay-75" />
-                          </div>
+                    <div className="grid grid-cols-2 gap-4 relative">
+                      {/* Scattered Jigsaw Pieces */}
+                      <div className="aspect-square bg-gray-900/50 rounded-xl p-4 transform rotate-12 transition-transform hover:rotate-0"
+                           style={{ clipPath: "path('M 0,50 C 0,33 17,33 17,50 L 17,83 C 17,100 0,100 0,83 Z M 17,50 C 17,67 33,67 33,50 L 33,17 C 33,0 17,0 17,17 Z')" }}>
+                        <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
+                          <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
                         </div>
                       </div>
                       
-                      {/* Arrow */}
-                      <div className="flex justify-center">
-                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                        </svg>
+                      <div className="aspect-square bg-gray-900/50 rounded-xl p-4 transform -rotate-6 translate-y-4 transition-transform hover:rotate-0 hover:translate-y-0"
+                           style={{ clipPath: "path('M 50,0 C 33,0 33,17 50,17 L 83,17 C 100,17 100,0 83,0 Z M 50,17 C 67,17 67,33 50,33 L 17,33 C 0,33 0,17 17,17 Z')" }}>
+                        <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
+                          <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                        </div>
                       </div>
-
-                      {/* After Process */}
-                      <div className="relative">
-                        <div className="absolute -left-2 top-1/2 w-4 h-4 rounded-full bg-green-500/20 transform -translate-y-1/2" />
-                        <div className="flex items-center gap-4 bg-gray-900/50 p-4 rounded-xl">
-                          <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">
-                            <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                          </div>
-                          <div className="flex-1">
-                            <div className="h-4 w-full bg-gray-700/50 rounded animate-pulse" />
-                            <div className="h-3 w-2/3 bg-gray-700/30 rounded mt-2 animate-pulse delay-75" />
-                          </div>
+                      
+                      <div className="aspect-square bg-gray-900/50 rounded-xl p-4 transform translate-x-6 rotate-45 transition-transform hover:rotate-0 hover:translate-x-0"
+                           style={{ clipPath: "path('M 100,50 C 100,33 83,33 83,50 L 83,83 C 83,100 100,100 100,83 Z M 83,50 C 83,67 67,67 67,50 L 67,17 C 67,0 83,0 83,17 Z')" }}>
+                        <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
+                          <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                          </svg>
                         </div>
                       </div>
                     </div>
@@ -220,44 +216,62 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Second Problem */}
+              {/* Second Problem/Solution */}
               <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Animated Illustration */}
+                {/* Illustration showing connected system */}
                 <div className="animate-on-scroll order-2 lg:order-1">
                   <div className="bg-gray-800/80 rounded-2xl p-8">
-                    <div className="grid grid-cols-2 gap-4">
-                      {[1, 2, 3, 4].map((i) => (
-                        <div 
-                          key={i}
-                          className="aspect-square bg-gray-900/50 rounded-xl overflow-hidden p-4"
-                        >
-                          <div className="w-full h-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg animate-pulse" style={{
-                            animationDelay: `${i * 150}ms`
-                          }}>
-                            <div className="h-2 w-2/3 bg-gray-700/50 rounded mt-2" />
-                            <div className="h-2 w-1/2 bg-gray-700/30 rounded mt-2" />
+                    <div className="relative">
+                      <div className="grid grid-cols-2 gap-0.5 bg-blue-500/10 rounded-xl overflow-hidden">
+                        {/* Connected Jigsaw Pieces */}
+                        {['Spreadsheets', 'Emails', 'Apps', 'Central System'].map((item, i) => (
+                          <div key={i} 
+                               className="aspect-square bg-gray-900/50 p-4 transition-transform hover:scale-95"
+                               style={{
+                                 clipPath: i === 0 ? "path('M 0,50 C 0,33 17,33 17,50 L 17,83 C 17,100 0,100 0,83 Z M 17,50 C 17,67 33,67 33,50 L 33,17 C 33,0 17,0 17,17 Z')" :
+                                          i === 1 ? "path('M 50,0 C 33,0 33,17 50,17 L 83,17 C 100,17 100,0 83,0 Z M 50,17 C 67,17 67,33 50,33 L 17,33 C 0,33 0,17 17,17 Z')" :
+                                          i === 2 ? "path('M 100,50 C 100,33 83,33 83,50 L 83,83 C 83,100 100,100 100,83 Z M 83,50 C 83,67 67,67 67,50 L 67,17 C 67,0 83,0 83,17 Z')" :
+                                          "path('M 50,100 C 33,100 33,83 50,83 L 83,83 C 100,83 100,100 83,100 Z M 50,83 C 67,83 67,67 50,67 L 17,67 C 0,67 0,83 17,83 Z')"
+                               }}>
+                            <div className="w-full h-full bg-blue-500/10 rounded-lg flex items-center justify-center flex-col gap-2">
+                              <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                              </svg>
+                              <span className="text-sm text-blue-400">{item}</span>
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-6 flex justify-center">
-                      <div className="px-4 py-2 bg-blue-500/10 rounded-lg">
-                        <span className="text-blue-400 text-sm font-medium">Scalable Solutions</span>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="animate-on-scroll order-1 lg:order-2">
                   <div className="bg-gray-800/80 p-8 rounded-2xl">
-                    <div className="inline-block bg-blue-500/10 px-4 py-2 rounded-lg mb-4">
-                      <span className="text-blue-400 font-medium">The Solution</span>
-                    </div>
+                    <span className="px-4 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-4 inline-block">
+                      How We Help
+                    </span>
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                      Transform Operations with Software Built for Your Ambitions
+                      Tailored Software That Optimises Your Business
                     </h2>
-                    <p className="text-xl text-gray-400">
-                      Forget off-the-shelf solutions that never quite fit. We partner with Dublin businesses like yours to build tools that work the way YOU work. Whether you need to streamline client management, automate bookings, or turn data into actionable insights, we&apos;ll craft a system that cuts costs, saves time, and scales with your goals.
-                    </p>
+                    <div className="space-y-4">
+                      <p className="text-gray-400">
+                        We design custom software that...
+                      </p>
+                      <ul className="space-y-3 text-gray-400">
+                        <li className="flex items-start gap-3">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span>Automates the grunt work → Free your team to focus on customers, not busywork.</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span>Centralizes your data → Turn fragmented numbers into clear, actionable insights.</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span>Simplifies your tools → Replace clunky apps with one intuitive system built for your workflow.</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -364,7 +378,7 @@ export default function Home() {
                 Let&apos;s Optimise Your Business
               </h2>
               <p className="text-xl text-gray-600 text-center mb-12">
-                Ready to ditch inefficiencies? Whether you need a custom dashboard, CRM, or a full process automation overhaul, we&apos;ll craft a solution that fits.
+                Ready to ditch inefficiencies? Whether you need a custom dashboard, client management system, or a full process automation overhaul, we&apos;ll craft a solution that fits.
               </p>
               <div className="bg-[#f7f7f7] p-8 rounded-2xl">
                 <ContactForm />
@@ -373,14 +387,21 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* Add this footer section just before the closing main tag */}
+      <footer className="bg-black text-gray-200">
+          <div className="border-t border-gray-800 p-4 text-center">
+            <p>Copyright &copy; {new Date().getFullYear()} Gerry Yang. All rights reserved.</p>
+          </div>
+      </footer>
     </>
   );
 }
 
 const projects = [
   {
-    title: "Data-Driven Dashboards",
-    description: "Turn chaos into clarity. Get real-time insights with custom dashboards that track KPIs, predict trends, and empower smarter decisions for Dublin's competitive markets.",
+    title: "Data Insights Dashboards",
+    description: "Turn chaos into clarity. Get real-time insights with custom dashboards that track KPIs, predict trends, and empower smarter decisions.",
     image: "/finance-dashboard.png",
     demoUrl: "/demos/data-dashboard"
   },
@@ -401,7 +422,7 @@ const projects = [
 const processSteps = [
   {
     title: "Discovery",
-    description: "We'll meet to map your goals, pain points, and budget."
+    description: "We'll meet to understand your business, current processes, and pain points."
   },
   {
     title: "Proposal",
