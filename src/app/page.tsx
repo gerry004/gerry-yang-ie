@@ -84,7 +84,7 @@ export default function Home() {
                 </p>
                 <div className="flex gap-4">
                   <button 
-                    onClick={() => scrollToSection('problems')}
+                    onClick={() => scrollToSection('about')}
                     className="bg-[#0F1115] hover:bg-black text-white px-8 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
                   >
                     Tell Me More <ArrowRight className="w-4 h-4" />
@@ -148,7 +148,7 @@ export default function Home() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-5xl mx-auto space-y-32">
               {/* First Problem */}
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid gap-16 items-center">
                 <div className="animate-on-scroll">
                   <div className="bg-gray-800/80 p-8 rounded-2xl">
                     <div className="mb-8">
@@ -166,82 +166,17 @@ export default function Home() {
                       <ul className="space-y-3 text-gray-400">
                         <li className="flex items-start gap-3">
                           <span className="text-blue-400 mt-1">•</span>
-                          <span>Your team wastes hours on repetitive, menial tasks instead of delighting customers.</span>
+                          <span>Your team <strong>wastes hours</strong> on repetitive, menial tasks instead of delighting customers.</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-blue-400 mt-1">•</span>
-                          <span>Your data is scattered across spreadsheets, emails, and apps—making it impossible to spot trends or act decisively.</span>
+                          <span>Your data is <strong>scattered</strong> across spreadsheets, emails, and apps—making it impossible to gather insights or act decisively.</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-blue-400 mt-1">•</span>
-                          <span>Your tools create more work, not less, with clunky interfaces and disconnected workflows.</span>
+                          <span>Your tools create <strong>more work</strong>, not less, with clunky interfaces and disconnected workflows.</span>
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                </div>
-                {/* Illustration showing messy data */}
-                <div className="animate-on-scroll">
-                  <div className="bg-gray-800/80 rounded-2xl p-8">
-                    <div className="grid grid-cols-2 gap-4 relative">
-                      {/* Scattered Jigsaw Pieces */}
-                      <div className="aspect-square bg-gray-900/50 rounded-xl p-4 transform rotate-12 transition-transform hover:rotate-0"
-                           style={{ clipPath: "path('M 0,50 C 0,33 17,33 17,50 L 17,83 C 17,100 0,100 0,83 Z M 17,50 C 17,67 33,67 33,50 L 33,17 C 33,0 17,0 17,17 Z')" }}>
-                        <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
-                          <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                        </div>
-                      </div>
-                      
-                      <div className="aspect-square bg-gray-900/50 rounded-xl p-4 transform -rotate-6 translate-y-4 transition-transform hover:rotate-0 hover:translate-y-0"
-                           style={{ clipPath: "path('M 50,0 C 33,0 33,17 50,17 L 83,17 C 100,17 100,0 83,0 Z M 50,17 C 67,17 67,33 50,33 L 17,33 C 0,33 0,17 17,17 Z')" }}>
-                        <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
-                          <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                        </div>
-                      </div>
-                      
-                      <div className="aspect-square bg-gray-900/50 rounded-xl p-4 transform translate-x-6 rotate-45 transition-transform hover:rotate-0 hover:translate-x-0"
-                           style={{ clipPath: "path('M 100,50 C 100,33 83,33 83,50 L 83,83 C 83,100 100,100 100,83 Z M 83,50 C 83,67 67,67 67,50 L 67,17 C 67,0 83,0 83,17 Z')" }}>
-                        <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
-                          <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Second Problem/Solution */}
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Illustration showing connected system */}
-                <div className="animate-on-scroll order-2 lg:order-1">
-                  <div className="bg-gray-800/80 rounded-2xl p-8">
-                    <div className="relative">
-                      <div className="grid grid-cols-2 gap-0.5 bg-blue-500/10 rounded-xl overflow-hidden">
-                        {/* Connected Jigsaw Pieces */}
-                        {['Spreadsheets', 'Emails', 'Apps', 'Central System'].map((item, i) => (
-                          <div key={i} 
-                               className="aspect-square bg-gray-900/50 p-4 transition-transform hover:scale-95"
-                               style={{
-                                 clipPath: i === 0 ? "path('M 0,50 C 0,33 17,33 17,50 L 17,83 C 17,100 0,100 0,83 Z M 17,50 C 17,67 33,67 33,50 L 33,17 C 33,0 17,0 17,17 Z')" :
-                                          i === 1 ? "path('M 50,0 C 33,0 33,17 50,17 L 83,17 C 100,17 100,0 83,0 Z M 50,17 C 67,17 67,33 50,33 L 17,33 C 0,33 0,17 17,17 Z')" :
-                                          i === 2 ? "path('M 100,50 C 100,33 83,33 83,50 L 83,83 C 83,100 100,100 100,83 Z M 83,50 C 83,67 67,67 67,50 L 67,17 C 67,0 83,0 83,17 Z')" :
-                                          "path('M 50,100 C 33,100 33,83 50,83 L 83,83 C 100,83 100,100 83,100 Z M 50,83 C 67,83 67,67 50,67 L 17,67 C 0,67 0,83 17,83 Z')"
-                               }}>
-                            <div className="w-full h-full bg-blue-500/10 rounded-lg flex items-center justify-center flex-col gap-2">
-                              <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                              </svg>
-                              <span className="text-sm text-blue-400">{item}</span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -260,15 +195,15 @@ export default function Home() {
                       <ul className="space-y-3 text-gray-400">
                         <li className="flex items-start gap-3">
                           <span className="text-blue-400 mt-1">•</span>
-                          <span>Automates the grunt work → Free your team to focus on customers, not busywork.</span>
+                          <span><strong>Automates the grunt work</strong> - free your team to focus on customers, not busywork.</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-blue-400 mt-1">•</span>
-                          <span>Centralizes your data → Turn fragmented numbers into clear, actionable insights.</span>
+                          <span><strong>Centralizes your data</strong> - turn fragmented numbers into clear, actionable insights.</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-blue-400 mt-1">•</span>
-                          <span>Simplifies your tools → Replace clunky apps with one intuitive system built for your workflow.</span>
+                          <span><strong>Simplifies your tools</strong> - replace clunky apps with one intuitive system built for your workflow.</span>
                         </li>
                       </ul>
                     </div>
