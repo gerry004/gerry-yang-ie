@@ -316,7 +316,7 @@ export default function Home() {
 
 const projects = [
   {
-    title: "Custom Built Website",
+    title: "Custom Built Websites",
     description: "Break free from rigid templates and endless hosting costs. Get a cost-effective custom built website tailored to your vision.",
     image: "/besharp.png",
     demoUrl: "https://besharppiano.ie/"
