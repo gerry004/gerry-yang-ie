@@ -201,7 +201,7 @@ export default function Home() {
             <div className="max-w-6xl mx-auto">
               <div className="mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black text-center animate-on-scroll">
-                  Sample Projects
+                  Solutions
                 </h2>
               </div>
 
