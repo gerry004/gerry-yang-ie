@@ -95,7 +95,7 @@ export default function Home() {
                         </svg>
                       </div>
                       <h3 className="font-semibold text-gray-800">Data Analytics</h3>
-                      <p className="text-sm text-gray-500">Real-time business insights</p>
+                      <p className="text-sm text-gray-500">Centralise fragmented data</p>
                     </div>
 
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
@@ -105,7 +105,7 @@ export default function Home() {
                         </svg>
                       </div>
                       <h3 className="font-semibold text-gray-800">Client Management Systems</h3>
-                      <p className="text-sm text-gray-500">Centralise client data</p>
+                      <p className="text-sm text-gray-500">Build stronger relationships</p>
                     </div>
 
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
