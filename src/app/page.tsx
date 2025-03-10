@@ -316,12 +316,6 @@ export default function Home() {
 
 const projects = [
   {
-    title: "Custom Built Websites",
-    description: "Break free from rigid templates and endless hosting costs. Get a cost-effective custom built website tailored to your vision.",
-    image: "/besharp.png",
-    demoUrl: "https://besharppiano.ie/"
-  },
-  {
     title: "Data Insights Dashboards",
     description: "Turn chaos into clarity. Get real-time insights with custom dashboards that track KPIs, predict trends, and empower smarter decisions.",
     image: "/finance-dashboard.png",
