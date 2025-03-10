@@ -61,7 +61,7 @@ export default function Home() {
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 mb-8 max-w-xl">
-                  Cut costs, automate workflows, and future-proof your operations with custom software built for your needs.
+                  Centralise fragmented data, automate workflows, eliminate inefficiency so that you can focus on growing your business.
                 </p>
                 <div className="flex gap-4">
                   <button 
@@ -294,7 +294,7 @@ export default function Home() {
                 Let&apos;s Optimise Your Business
               </h2>
               <p className="text-xl text-gray-600 text-center mb-12">
-                Ready to ditch inefficiencies? Whether you need a custom dashboard, client management system, or a full process automation overhaul, we&apos;ll craft a solution that fits.
+                Ready to eliminate inefficiencies? Whether you need a custom dashboard, client management system, or a full process automation overhaul, we&apos;ll craft a solution that fits.
               </p>
               <div className="bg-[#f7f7f7] p-8 rounded-2xl">
                 <ContactForm />
@@ -317,7 +317,7 @@ export default function Home() {
 const projects = [
   {
     title: "Data Insights Dashboards",
-    description: "Turn chaos into clarity. Get real-time insights with custom dashboards that track KPIs, predict trends, and empower smarter decisions.",
+    description: "Turn chaos into clarity. Get actionable insights from fragmented data to empower smarter decisions with custom data dashboards.",
     image: "/finance-dashboard.png",
     demoUrl: "/demos/data-dashboard"
   },
