@@ -61,7 +61,7 @@ export default function Home() {
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 mb-8 max-w-xl">
-                  Centralise fragmented data, automate workflows, eliminate inefficiency so that you can focus on growing your business.
+                  Centralise fragmented data, automate workflows, eliminate inefficiency, so that you can focus on growing your business.
                 </p>
                 <div className="flex gap-4">
                   <button 
