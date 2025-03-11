@@ -50,24 +50,29 @@ export default function ClientManagementDemo() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 px-4 sm:px-6 md:px-0">
+      {/* Page Title - Visible on mobile */}
+      <div className="md:hidden">
+        <h1 className="text-2xl font-semibold mb-6">Dashboard</h1>
+      </div>
+      
       {/* Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl p-6 border border-blue-500/20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl p-4 md:p-6 border border-blue-500/20">
           <h3 className="text-gray-400 text-sm font-medium">Total Leads</h3>
-          <p className="text-2xl font-semibold mt-2 text-blue-400">{leadsData.length}</p>
+          <p className="text-xl md:text-2xl font-semibold mt-2 text-blue-400">{leadsData.length}</p>
         </div>
-        <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-500/20">
+        <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 md:p-6 border border-purple-500/20">
           <h3 className="text-gray-400 text-sm font-medium">Active Deals</h3>
-          <p className="text-2xl font-semibold mt-2 text-purple-400">{dealsData.length}</p>
+          <p className="text-xl md:text-2xl font-semibold mt-2 text-purple-400">{dealsData.length}</p>
         </div>
-        <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl p-6 border border-green-500/20">
+        <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl p-4 md:p-6 border border-green-500/20">
           <h3 className="text-gray-400 text-sm font-medium">Total Deal Value</h3>
-          <p className="text-2xl font-semibold mt-2 text-green-400">€{formatNumber(totalDealsAmount)}</p>
+          <p className="text-xl md:text-2xl font-semibold mt-2 text-green-400">€{formatNumber(totalDealsAmount)}</p>
         </div>
-        <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-xl p-6 border border-orange-500/20">
+        <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-xl p-4 md:p-6 border border-orange-500/20">
           <h3 className="text-gray-400 text-sm font-medium">Conversion Rate</h3>
-          <p className="text-2xl font-semibold mt-2 text-orange-400">
+          <p className="text-xl md:text-2xl font-semibold mt-2 text-orange-400">
             {((dealsData.length / leadsData.length) * 100).toFixed(1)}%
           </p>
         </div>
@@ -76,20 +81,32 @@ export default function ClientManagementDemo() {
       {/* Wrap charts with ClientOnly */}
       <ClientOnly>
         <div className="space-y-6">
-          <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+          <div className="bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-700">
             <h3 className="text-lg font-semibold mb-4">Leads & Deals Trends</h3>
-            <TrendsChart data={trendsData} />
+            <div className="w-full overflow-x-auto">
+              <div className="h-[300px] min-w-[300px]">
+                <TrendsChart data={trendsData} />
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+            <div className="bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-700">
               <h3 className="text-lg font-semibold mb-4">Lead Status Distribution</h3>
-              <LeadsPieChart data={leadsPieData} />
+              <div className="w-full">
+                <div className="h-[250px] min-w-[250px]">
+                  <LeadsPieChart data={leadsPieData} />
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+            <div className="bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-700">
               <h3 className="text-lg font-semibold mb-4">Monthly Revenue</h3>
-              <RevenueChart data={revenueData} />
+              <div className="w-full overflow-x-auto">
+                <div className="h-[250px] min-w-[300px]">
+                  <RevenueChart data={revenueData} />
+                </div>
+              </div>
             </div>
           </div>
         </div>

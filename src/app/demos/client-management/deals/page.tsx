@@ -26,10 +26,10 @@ export default function DealsPage() {
 
   return (
     <ClientOnly>
-      <div className="space-y-6">
-        <div className="flex justify-between items-center">
+      <div className="space-y-6 px-4 sm:px-6 md:px-0">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
           <h1 className="text-2xl font-semibold">Deals</h1>
-          <button className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg text-white transition-colors">
+          <button className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg text-white transition-colors w-full sm:w-auto">
             + New Deal
           </button>
         </div>
@@ -39,19 +39,19 @@ export default function DealsPage() {
             <table className="w-full">
               <thead className="bg-gray-700/50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('company')}>
+                  <th className="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider whitespace-nowrap hover:cursor-pointer" onClick={() => handleSort('company')}>
                     Company
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('amount')}>
+                  <th className="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider whitespace-nowrap hover:cursor-pointer" onClick={() => handleSort('amount')}>
                     Amount
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('stage')}>
+                  <th className="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider whitespace-nowrap hover:cursor-pointer" onClick={() => handleSort('stage')}>
                     Stage
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('owner')}>
+                  <th className="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider whitespace-nowrap hover:cursor-pointer" onClick={() => handleSort('owner')}>
                     Owner
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider hover:cursor-pointer" onClick={() => handleSort('lastActivity')}>
+                  <th className="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider whitespace-nowrap hover:cursor-pointer" onClick={() => handleSort('lastActivity')}>
                     Last Activity
                   </th>
                 </tr>
@@ -59,12 +59,12 @@ export default function DealsPage() {
               <tbody className="divide-y divide-gray-700">
                 {sortedDeals.map((deal) => (
                   <tr key={deal.id} className="hover:bg-gray-700/30">
-                    <td className="px-6 py-4 text-gray-300">{deal.company}</td>
-                    <td className="px-6 py-4 font-medium text-gray-200">
+                    <td className="px-4 md:px-6 py-4 text-gray-300 whitespace-nowrap">{deal.company}</td>
+                    <td className="px-4 md:px-6 py-4 font-medium text-gray-200 whitespace-nowrap">
                       €{deal.amount.toLocaleString()}
                     </td>
-                    <td className="px-6 py-4">
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                    <td className="px-4 md:px-6 py-4 whitespace-nowrap">
+                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
                         {
                           'Discovery': 'bg-blue-400/10 text-blue-400',
                           'Proposal': 'bg-yellow-400/10 text-yellow-400',
@@ -76,8 +76,8 @@ export default function DealsPage() {
                         {deal.stage}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-300">{deal.owner}</td>
-                    <td className="px-6 py-4 text-gray-300">{deal.lastActivity}</td>
+                    <td className="px-4 md:px-6 py-4 text-gray-300 whitespace-nowrap">{deal.owner}</td>
+                    <td className="px-4 md:px-6 py-4 text-gray-300 whitespace-nowrap">{deal.lastActivity}</td>
                   </tr>
                 ))}
               </tbody>
