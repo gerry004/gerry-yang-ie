@@ -6,7 +6,7 @@
 
 /* Unified background with animated gradient */
 body {
-  @apply bg-gray-900 text-white font-sans min-h-screen;
+  @apply bg-gray-900 font-sans min-h-screen;
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 

@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Home() {
   useEffect(() => {
@@ -232,10 +233,12 @@ export default function Home() {
                                 </div>
                               </div>
                               <div className="absolute top-8 inset-x-0 bottom-0 bg-gray-50">
-                                <img
+                                <Image
                                   src={project.image}
                                   alt={project.title}
-                                  className="w-full h-full object-cover"
+                                  width={500}
+                                  height={300}
+                                  priority={true}
                                 />
                               </div>
                             </div>
