@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import ContactForm from '@/components/ContactForm';
 import Navbar from '@/components/Navbar';
 import { ArrowRight } from 'lucide-react';
 
@@ -296,8 +295,15 @@ export default function Home() {
               <p className="text-xl text-gray-600 text-center mb-12">
                 Ready to eliminate inefficiencies? Whether you need a custom dashboard, client management system, or a full process automation overhaul, we&apos;ll craft a solution that fits.
               </p>
-              <div className="bg-[#f7f7f7] p-8 rounded-2xl">
-                <ContactForm />
+              <div className="flex justify-center text-center">
+                <a 
+                  href="https://calendly.com/gerryyang/30min" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
+                >
+                  <span>Book a Free Consultation</span>
+                </a>
               </div>
             </div>
           </div>
